@@ -1,0 +1,33 @@
+<h1>Listing my_coffees</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Roast</th>
+      <th>Ground</th>
+      <th>Origin</th>
+      <th>Notes</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @my_coffees.each do |my_coffee| %>
+      <tr>
+        <td><%= my_coffee.name %></td>
+        <td><%= my_coffee.roast %></td>
+        <td><%= my_coffee.ground %></td>
+        <td><%= my_coffee.origin %></td>
+        <td><%= my_coffee.notes %></td>
+        <td><%= link_to 'Show', my_coffee %></td>
+        <td><%= link_to 'Edit', edit_my_coffee_path(my_coffee) %></td>
+        <td><%= link_to 'Destroy', my_coffee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New My coffee', new_my_coffee_path %>
